@@ -8,7 +8,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 /**
  * Created by smile on 2017/3/11.
  */
-public class OutofTime {
+public class OutOfTime {
 
     public static void main(String[] args) throws InterruptedException {
         // 实际情况是程序运行1秒就结束了，并抛出一个异常消息"Timer already cancelled"
