@@ -10,10 +10,10 @@ extern "C" {
 /*
  * Class:     com_github_rhtsjz_jse_jni_HelloJNICpp
  * Method:    sayHello
- * Signature: ()V
+ * Signature: (Ljava/lang/String;)Ljava/lang/String;
  */
-JNIEXPORT void JNICALL Java_com_github_rhtsjz_jse_jni_HelloJNICpp_sayHello
-  (JNIEnv *, jobject);
+JNIEXPORT jstring JNICALL Java_com_github_rhtsjz_jse_jni_HelloJNICpp_sayHello
+  (JNIEnv *, jobject, jstring);
 
 #ifdef __cplusplus
 }
