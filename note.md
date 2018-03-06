@@ -10,3 +10,7 @@ public static final Object NULL = new Null();
 2. 构造器中调用以 `org.json.JSONTokener` 为参数的构造器
 3. 调用无参数构造器初始化map域
 
+gson
+##Q: json中的属性和java bean的属性是如何对应上的?
+##A:map
+

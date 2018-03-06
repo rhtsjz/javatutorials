@@ -122,18 +122,28 @@ public final class Gson {
   private final ThreadLocal<Map<TypeToken<?>, FutureTypeAdapter<?>>> calls
       = new ThreadLocal<Map<TypeToken<?>, FutureTypeAdapter<?>>>();
 
+  //zsj <TypeToken,TypeAdapter>的缓存
   private final Map<TypeToken<?>, TypeAdapter<?>> typeTokenCache = new ConcurrentHashMap<TypeToken<?>, TypeAdapter<?>>();
 
+  //zsj TypeAdapterFactory的列表
   private final List<TypeAdapterFactory> factories;
+  //zsj 构造器
   private final ConstructorConstructor constructorConstructor;
 
+  //zsj 排除器,包括 版本/修饰符/是否序列化内部类/序列化策略/反序列化策略
   private final Excluder excluder;
+  //zsj 属性名策略
   private final FieldNamingStrategy fieldNamingStrategy;
+  //zsj 是否序列化空值
   private final boolean serializeNulls;
+  //zsj 是否html安全
   private final boolean htmlSafe;
+  //zsj 是否生成非可执行的Json
   private final boolean generateNonExecutableJson;
   private final boolean prettyPrinting;
+  //zsj 是否规范宽松
   private final boolean lenient;
+  //zsj 注解相关
   private final JsonAdapterAnnotationTypeAdapterFactory jsonAdapterFactory;
 
   /**
@@ -396,11 +406,13 @@ public final class Gson {
    */
   @SuppressWarnings("unchecked")
   public <T> TypeAdapter<T> getAdapter(TypeToken<T> type) {
+    //zsj 先check typeToken的缓存
     TypeAdapter<?> cached = typeTokenCache.get(type == null ? NULL_KEY_SURROGATE : type);
     if (cached != null) {
       return (TypeAdapter<T>) cached;
     }
 
+    //zsj 不理解
     Map<TypeToken<?>, FutureTypeAdapter<?>> threadCalls = calls.get();
     boolean requiresThreadLocalCleanup = false;
     if (threadCalls == null) {
@@ -416,6 +428,7 @@ public final class Gson {
     }
 
     try {
+      //zsj 不理解
       FutureTypeAdapter<T> call = new FutureTypeAdapter<T>();
       threadCalls.put(type, call);
 
