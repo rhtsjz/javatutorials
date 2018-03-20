@@ -1,5 +1,6 @@
 package com.github.rhtsjz.advance.collect;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -8,6 +9,13 @@ import java.util.TreeMap;
 public class MapMain {
     public static void main(String[] args) {
         Map m = new HashMap();
+        m = new TreeMap();
+        m = Collections.synchronizedMap(m);
+        m.put(97, 97);
+        for (int i = 1; i < 64; i++) {
+            m.put(i, i);
+        }
+        m.put(97, 98);
         m.put(1, 1);
         m.put(17, 2);
         m.put(33, 3);
