@@ -1,13 +1,13 @@
 package com.github.rhtsjz.advance.concurrent;
 
-public class UnsafeInstance1 {
+public class UnsafeLazyInstance1 {
     private static volatile String[] values;//不管是否加volatile关键字都不会出现不安全发布现象
 
     private static volatile String value;
 
     public static String[] getInstance() throws InterruptedException {
         if (null == values) {
-            synchronized (UnsafeInstance1.class) {
+            synchronized (UnsafeLazyInstance1.class) {
                 if (null == values) {
                     int num = 1000;
                     values = new String[num];//不安全发布
@@ -22,7 +22,7 @@ public class UnsafeInstance1 {
 
     public static String getInstance1() throws InterruptedException {
         if (value == null) {
-            synchronized (UnsafeInstance1.class) {
+            synchronized (UnsafeLazyInstance1.class) {
                 if (null == value) {
                     value = "hello";
                 }

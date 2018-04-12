@@ -3,7 +3,7 @@ package com.github.rhtsjz.advance.concurrent;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class UnsafeInstance1Tester {
+public class UnsafeLazyInstance1Tester {
     static Runnable createRunnable() {
         Runnable run = new Runnable() {
             @Override
@@ -11,9 +11,9 @@ public class UnsafeInstance1Tester {
                 String[] va;
                 String v;
                 try {
-                    va = UnsafeInstance1.getInstance();
+                    va = UnsafeLazyInstance1.getInstance();
                     print(va);
-//                    v = UnsafeInstance1.getInstance1();
+//                    v = UnsafeLazyInstance1.getInstance1();
 //                    System.out.println(v+"------------------------------");
                 } catch (InterruptedException e) {
                     e.printStackTrace();
