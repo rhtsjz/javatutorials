@@ -1,6 +1,7 @@
 package com.github.rhtsjz.advance.collect;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -33,6 +34,8 @@ public class ListMain {
         l.add(321);
         l.add(385);
         l.add(449);
+
+        Collections.sort(l);
         System.out.println(l.size());
     }
 }

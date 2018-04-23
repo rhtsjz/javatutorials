@@ -8,6 +8,8 @@ import java.util.TreeMap;
 
 public class MapMain {
     public static void main(String[] args) {
+        String s = "abc";
+
         Map m = new HashMap();
         m = new TreeMap();
         m = Collections.synchronizedMap(m);
